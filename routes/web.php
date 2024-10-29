@@ -21,4 +21,16 @@ Route::resource('bookings', BookingController::class);
 //Route::get('/bookings/{id}/edit', [BookingController::class, 'edit'])->name('bookings.edit');
 //Route::put('/bookings/{id}', [BookingController::class, 'update'])->name('bookings.update');
 //Route::delete('/bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
+//
+
+
+
+
+
+//Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+//Route::post('/login', [LoginController::class, 'login']);
+//Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+//Route::post('/register', [RegisterController::class, 'register']);
+
+
 
