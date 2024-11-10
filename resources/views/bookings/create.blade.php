@@ -7,9 +7,6 @@
     <title>Создать бронирование</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    {{-- Подключаем CSS и JS через Vite --}}
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
     <style>
         header {
             position: relative;
@@ -31,25 +28,14 @@
             translate: 800px 150px;
             backdrop-filter: blur(10px);
             border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.67);
+            background-color: rgba(128, 239, 255, 0.66);
         }
         h2 {
             position: absolute;
             translate: 30px -50px;
             user-select: none;
-            font-size: 1.5rem;
             word-spacing: 10px;
             letter-spacing: 3px;
-        }
-        h3 {
-            position: absolute;
-            user-select: none;
-            color: #5cb508;
-            letter-spacing: 4px;
-            font-size: 25px;
-            font-family: sans-serif;
-            border-radius: 10px;
-            transition: 1s;
         }
         .box input {
             width: 100%;
@@ -94,29 +80,29 @@
         .poqr {
             position: fixed;
             top: 20px;
-            right: -125px; /* Скрываем кнопки за пределами экрана */
-            transition: right 1s ease, transform 0.5s ease; /* Плавная анимация для перемещения */
+            right: -168px;
+            transition: right 1s ease, transform 0.5s ease;
             display: flex;
             align-items: center;
         }
 
         .poqr.active {
-            right: -80px; /* Показываем кнопки при активном классе */
-            transform: translateX(-100px); /* Перемещаем влево на 100px */
+            right: -90px;
+            transform: translateX(-100px);
         }
 
         .poqr i {
-            font-size: 24px; /* Размер иконки */
-            margin-right: 10px; /* Отступ между иконкой и кнопками */
-            cursor: pointer; /* Курсор указателя для иконки */
+            font-size: 28px;
+            margin-right: 10px;
+            cursor: pointer;
         }
         .poqr.active .signin,
         .poqr.active .signup {
-            display: block; /* Показываем кнопки при активном классе */
+            display: block;
         }
         .toggle-button {
             cursor: pointer;
-            color: #ef3232;
+            color: rgba(15, 80, 246, 0.93);
         }
         .signin{
             background-color: transparent;
@@ -125,7 +111,7 @@
             transition: .7s;
         }
         .signin:hover{
-            color: #05ecf4;
+            color: rgba(15, 80, 246, 0.93);
         }
         .signup{
             transition: .7s;
@@ -134,78 +120,269 @@
             border: none;
         }
         .signup:hover{
-            color: #05f418;
+            color: rgba(15, 80, 246, 0.93);
         }
 
-        /* .boxsignin  h3{*/
-        /*     position: fixed;*/
-        /*     font-size: 20px;*/
-        /*     color: #ff001e;*/
-        /*     right: -18px;*/
-        /*     top: 100px;*/
-        /*     transition: 1s;*/
-        /*     background-color: transparent;*/
-        /*     font-weight: bold;*/
-        /* }*/
-        /*.active .boxsignin  h3{*/
-        /*      translate: 0;*/
-        /*      !*display: block;*!*/
-        /*      transition: .7s;*/
-        /*  }*/
-        /*  .boxsignin h3{*/
-        /*      transition: .7s;*/
-        /*  }*/
 
-
-
-
-        .boxsignin {
-            position: absolute;
-            right: -300px; /* Скрыта за экраном */
-            top: 20%;
-            width: 300px;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            transition: right 0.7s ease-in-out;
-            display: flex;
-            flex-direction: column;
+        /*----------------sign in about---------------------------*/
+        h3{
+            position: fixed;
+            transition: 1s;
+            right: -90px;
+            top: 8%;
+            user-select: none;
+        }
+        .open h3{
+            right: 35px;
         }
 
-        .open .boxsignin {
-            right: 15px; /* Показываем форму */
+        .labelemail{
+            position: fixed;
+            transition: 2s;
+            color: #000000;
+            font-size: 1rem;
+            right: -200px;
+            font-weight: bold;
+            top: 12%;
+        }
+        .open .labelemail{
+            right: 35px;
         }
 
-        .boxsignin input {
-            margin: 10px 0;
-            padding: 10px;
+        .inputemail{
+            margin: 0;
             border-radius: 5px;
-            border: none;
+            padding: 2px;
+            transition: 1.3s;
+            border: 1px solid #2b2a2a;
+            background-color: rgba(214, 214, 214, 0.44);
+            position: fixed;
+            right: -270px;
+            top: 16%;
+        }
+        .open .inputemail{
+            right: 30px;
+        }
+        .labelpassword{
+            position: fixed;
+            transition: 2s;
+            right: -200px;
+            color: #000000;
+            font-size: 1rem;
+            top: 22%;
+            font-weight: bold;
+        }
+        .open .labelpassword{
+            right: 35px;
         }
 
-        /*.signin {*/
-        /*    background-color: #05ecf4;*/
-        /*    border: none;*/
-        /*    padding: 10px;*/
-        /*    border-radius: 5px;*/
-        /*    color: #111;*/
-        /*    cursor: pointer;*/
-        /*    transition: background-color 0.3s;*/
-        /*}*/
+        .inputpassword{
+            margin: 0;
+            padding: 2px;
+            border-radius: 5px;
+            transition: 1.3s;
+            border: 1px solid #2b2a2a;
+            background-color: rgba(214, 214, 214, 0.44);
+            position: fixed;
+            right: -270px;
+            top: 26%;
+        }
+        .open .inputpassword{
+            right: 30px;
+        }
 
-        /*.signin:hover {*/
-        /*    background-color: #05f418;*/
-        /*}*/
+        .buttonsignin{
+            border-radius: 5px;
+            transition: background-color 1.2s, right 1.9s;
+            padding: 4px;
+            border: 1px solid #3c3a3a;
+            position: fixed;
+            right: -200px;
+            color: #1446c6;
+            top: 30%;
+            margin: 14px -14px;
+            width: 90px;
+        }
+        .buttonsignin:hover{
+            color: white;
+            background-color: #1446c6;
+        }
+        .open .buttonsignin{
+            right: 45px;
+        }
+        /*----------------sign in----------------------*/
+        /*----------------sign up about----------------------*/
+        h6{
+            position: fixed;
+            transition: 1s;
+            right: -120px;
+            top: 8%;
+            user-select: none;
+        }
+        .chopen h6{
+            right: 35px;
+        }
+        .reslabelname{
+            position: fixed;
+            transition: 1.4s;
+            color: #000000;
+            font-size: 1rem;
+            right: -4000px;
+            font-weight: bold;
+            top: 12%;
+        }
+        .chopen .reslabelname{
+            right: 35px;
+        }
+        .resinputname{
+            margin: 0;
+            border-radius: 5px;
+            padding: 2px;
+            transition: 1.3s;
+            border: 1px solid #2b2a2a;
+            background-color: rgba(214, 214, 214, 0.44);
+            position: fixed;
+            right: -270px;
+            top: 16%;
+        }
+        .chopen .resinputname{
+            right: 30px;
+        }
+        .reslabellastname{
+            position: fixed;
+            transition: 1.6s;
+            color: #000000;
+            font-size: 1rem;
+            right: -4000px;
+            font-weight: bold;
+            top: 20%;
+        }
+        .chopen .reslabellastname{
+            right: 35px;
+        }
+        .resinputlastname{
+            margin: 0;
+            border-radius: 5px;
+            padding: 2px;
+            transition: 1.3s;
+            border: 1px solid #2b2a2a;
+            background-color: rgba(214, 214, 214, 0.44);
+            position: fixed;
+            right: -270px;
+            top: 24%;
+        }
+        .chopen .resinputlastname{
+            right: 30px;
+        }
+        .reslabelemail{
+            position: fixed;
+            transition: 1.8s;
+            color: #000000;
+            font-size: 1rem;
+            right: -4000px;
+            top: 28%;
+            font-weight: bold;
+        }
+        .chopen .reslabelemail{
+            right: 35px;
+        }
+        .resinputemail{
+            margin: 0;
+            padding: 2px;
+            border-radius: 5px;
+            transition: 1.3s;
+            border: 1px solid #2b2a2a;
+            background-color: rgba(214, 214, 214, 0.44);
+            position: fixed;
+            right: -270px;
+            top: 32%;
+        }
+        .chopen .resinputemail{
+            right: 30px;
 
-
+        }
+        .reslabelpass{
+            position: fixed;
+            transition: 2s;
+            color: #000000;
+            font-size: 1rem;
+            right: -4000px;
+            top: 36%;
+            margin: 0;
+            font-weight: bold;
+        }
+        .chopen .reslabelpass{
+            right: 35px;
+        }
+        .resinputpass{
+            margin: 0;
+            padding: 2px;
+            border-radius: 5px;
+            transition: 1.3s;
+            border: 1px solid #2b2a2a;
+            background-color: rgba(214, 214, 214, 0.44);
+            position: fixed;
+            right: -270px;
+            top: 40%;
+        }
+        .chopen .resinputpass{
+            right: 30px;
+        }
+        .reslabelconfpass{
+            position: fixed;
+            transition: 2.2s;
+            color: #000000;
+            font-size: 1rem;
+            right: -4000px;
+            top: 44%;
+            margin: 0;
+            font-weight: bold;
+        }
+        .chopen  .reslabelconfpass{
+            right: 35px;
+        }
+        .resinputconfpass{
+            margin: 0;
+            padding: 2px;
+            border-radius: 5px;
+            transition: 1.3s;
+            border: 1px solid #2b2a2a;
+            background-color: rgba(214, 214, 214, 0.44);
+            position: fixed;
+            right: -270px;
+            top: 48%;
+        }
+        .chopen .resinputconfpass{
+            right: 30px;
+        }
+        .buttonsignup{
+            border-radius: 5px;
+            transition: background-color 1.2s, right 1.9s;
+            border: 1px solid #3c3a3a;
+            position: fixed;
+            right: -200px;
+            width: 140px;
+            height: 40px;
+            color: #1446c6;
+            top: 52%;
+            margin: 14px -14px;
+        }
+        .buttonsignup:hover{
+            color: white;
+            background-color: #1446c6;
+        }
+        .chopen .buttonsignup{
+            right: 45px;
+        }
+        /*---------------- sign up ----------------------*/
 
 
     </style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body style="background: url('https://app.conciergetravel.am/storage/24/congress-1024x578.jpg') no-repeat center/cover fixed;">
+<body style="background: url('https://png.pngtree.com/thumb_back/fw800/background/20231008/pngtree-explore-the-world-online-booking-of-airline-tickets-with-search-bar-image_13571648.png') no-repeat center/cover fixed;">
 
-<h3>Вы нашли жилье для нового отдыха</h3>
 
 @if (session('success'))
     <div class="alert alert-success">
@@ -223,64 +400,81 @@
     </div>
 @endif
 <div class="poqr">
-    <i class="fa-solid fa-user toggle-button"></i> <!-- Иконка пользователя -->
-    <button type="submit" class="signin">Sign In</button>
-    <button type="submit" class="signup">Sign Up</button>
+    <i class="fa-solid fa-user toggle-button"></i>
+    <button type="submit" class="signin">Вход</button>
+    <span style="display: inline-block; margin: 0 5px; color: #4c4a4a; user-select: none;">/</span>
+    <button type="submit" class="signup">Регистрация</button>
 </div>
 
-<nav class="boxsignin">
     @if (session('error'))
         <div class="alert alert-danger">{{ session('error') }}</div>
     @endif
 {{--        {{ route('login') }}--}}
-    <h3>Sign In</h3>
+
+    <h3 style="color: #d5d5d5; font-size: 19px; ">Войти</h3>
     <form action="" method="post">
         @csrf
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" maxlength="30" value="{{ old('email') }}">
+        <label for="email" class="labelemail">Укажите свой email</label>
+        <input type="email" class="inputemail" name="email" id="email" maxlength="30" value="{{ old('email') }}">
         @error('email') <div class="errorna">{{ $message }}</div> @enderror
 
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" maxlength="30">
-        <button type="submit" class="buttonsignin">Sign In</button>
+        <label for="password" class="labelpassword">Пароль</label>
+        <input type="password" class="inputpassword" name="password" id="password" maxlength="30">
+        <button type="submit" class="buttonsignin">Вход</button>
     </form>
-</nav>
 
 
 
 
-{{--<nav class="boxsignup">--}}
-{{--    <h2>Register</h2>--}}
-{{--    @if ($errors->any())--}}
-{{--        <div class="alert alert-danger">--}}
-{{--            <ul>--}}
-{{--                @foreach ($errors->all() as $error)--}}
-{{--                    <li>{{ $error }}</li>--}}
-{{--                @endforeach--}}
-{{--            </ul>--}}
-{{--        </div>--}}
-{{--    @endif--}}
-{{--    <form action="{{ route('register') }}" method="POST">--}}
-{{--        @csrf--}}
-{{--        <div>--}}
-{{--            <label for="name">Name:</label>--}}
-{{--            <input type="text" name="name" id="name" required>--}}
-{{--        </div>--}}
-{{--        <div>--}}
-{{--            <label for="email">Email:</label>--}}
-{{--            <input type="email" name="email" id="email" required>--}}
-{{--        </div>--}}
-{{--        <div>--}}
-{{--            <label for="password">Password:</label>--}}
-{{--            <input type="password" name="password" id="password" required>--}}
-{{--        </div>--}}
-{{--        <div>--}}
-{{--            <label for="password_confirmation">Confirm Password:</label>--}}
-{{--            <input type="password" name="password_confirmation" id="password_confirmation" required>--}}
-{{--        </div>--}}
-{{--        <button type="submit">Register</button>--}}
-{{--    </form>--}}
-{{--</nav>--}}
+    <h6 style="color: #d5d5d5; font-size: 19px; ">Регистрация</h6>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+{{--{{ route('register') }}--}}
+    <form action="" method="POST">
+        @csrf
+        <div>
+            <label for="name" class="reslabelname">Имя</label>
+            <input type="text" name="name" id="name" class="resinputname" required>
+        </div>
+        <div>
+            <label for="lastname" class="reslabellastname">Фамилия</label>
+            <input type="text" name="name" id="name" class="resinputlastname" required>
+        </div>
+        <div>
+            <label for="email" class="reslabelemail">Электронная почта</label>
+            <input type="email" class="resinputemail" name="email" id="email" required>
+        </div>
+        <div>
+            <label for="password" class="reslabelpass">Придумайте пароль</label>
+            <input type="password" class="resinputpass" name="password" id="password" required>
+        </div>
+        <div>
+            <label for="password_confirmation" class="reslabelconfpass">Подтвердите пароль</label>
+            <input type="password" class="resinputconfpass" name="password_confirmation" id="password_confirmation" required>
+        </div>
+        <button type="submit" class="buttonsignup">Создать аккаунт</button>
+    </form>
+        <div>
+            <label for="email" class="reslabelemail">Электронная почта</label>
+            <input type="email" class="resinputemail" name="email" id="email" required>
+        </div>
+        <div>
+            <label for="password" class="reslabelpass">Придумайте пароль</label>
+            <input type="password" class="resinputpass" name="password" id="password" required>
+        </div>
+        <div>
+            <label for="password_confirmation" class="reslabelconfpass">Подтвердите пароль</label>
+            <input type="password" class="resinputconfpass" name="password_confirmation" id="password_confirmation" required>
+        </div>
+        <button type="submit" class="buttonsignup">Создать аккаунт</button>
+    </form>
 
 
 
@@ -290,7 +484,7 @@
 <form action="{{ route('bookings.store') }}" method="POST">
     @csrf
     <div class="box">
-        <h2>FIND ROOM</h2>
+        <h4>FIND ROOM</h4>
 
         <label for="anun">Имя</label>
         <input type="text" name="anun" id="anun" value="{{ old('anun') }}" required>
@@ -312,21 +506,74 @@
 </form>
 
 <script>
-    const toggleButton = document.querySelector('.toggle-button'); // Теперь выбираем иконку
-    const poqr = document.querySelector('.poqr');
 
-    toggleButton.addEventListener('click', () => {
-        poqr.classList.toggle('active'); // Переключаем класс active для показа/скрытия
-    });
-
-
-
-    const signin = document.querySelector('.signin'); // Кнопка для переключения
-    const body = document.body; // Получаем элемент body
+    const signin = document.querySelector('.signin');
+    const signup = document.querySelector('.signup');
+    const body = document.body;
 
     signin.addEventListener('click', () => {
-        body.classList.toggle('open'); // Переключаем класс для показа/скрытия формы
+        body.classList.toggle('open');
+        if (body.classList.contains('open')) {
+            body.classList.remove('chopen');
+        }
     });
+
+    signup.addEventListener('click', () => {
+        body.classList.toggle('chopen');
+        if (body.classList.contains('chopen')) {
+            body.classList.remove('open');
+        }
+    });
+
+
+    const toggleButton = document.querySelector('.toggle-button');
+    const poqr = document.querySelector('.poqr');
+
+
+    toggleButton.addEventListener('click', () => {
+        poqr.classList.toggle('active');
+        setTimeout(() => {
+            poqr.classList.remove('active');
+        }, 10000);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 </body>
