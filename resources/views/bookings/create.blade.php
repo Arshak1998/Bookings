@@ -6,77 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Создать бронирование</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        header {
-            position: relative;
-            height: 100vh;
-            background-color: #111;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .box {
-            transform: translateY(-8.8vh) translateX(-10.8vh);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 5vh 2vw;
-            max-width: 350px;
-            height: 450px;
-            translate: 800px 150px;
-            backdrop-filter: blur(10px);
-            border-radius: 8px;
-            background-color: rgba(128, 239, 255, 0.66);
-        }
-        h2 {
-            position: absolute;
-            translate: 30px -50px;
-            user-select: none;
-            word-spacing: 10px;
-            letter-spacing: 3px;
-        }
-        .box input {
+        /*----------------------- BACK VIDEO -----------------------*/
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 220px;
-            padding: 10px;
-            border: none;
-            border-radius: 8px;
-            background-color: rgba(33, 37, 36, 0.47);
-            color: #fdfdfd;
-            font-size: 1rem;
-            transition: 0.3s;
-            transform: translateY(0.8vh) translateX(3.8vh);
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
         }
-        .box label {
-            align-self: flex-start;
-            margin-bottom: 0.5rem;
-            color: #121212;
-            font-size: 1rem;
-            transform: translateY(5vh) translateX(-1vh);
+        /*---------------------- BACK VIDEO END ----------------------*/
+        /*------------------------- CLOCK ----------------------------*/
+
+        .box{
+            width: 300px;
+            height: 80px;
+            border-radius: 25px;
+            color: white;
+            position: fixed;
+            z-index: 1000;
+            translate: 12px;
         }
-        .bron {
-            position: absolute;
-            width: 180px;
-            height: 50px;
-            transform: translateY(45vh) translateX(3.8vh);
-            border-radius: 10px;
-            background: linear-gradient(to right, #0f37bb, #e2e2e2);
-            border: 1px solid black;
-            cursor: pointer;
-            font-size: 15px;
-            letter-spacing: 1px;
-            transition: 1s;
+        .box .jam{
+            width: 200px;
+            height: 40px;
         }
-        .bron:hover {
-            background: linear-gradient(to right, #e2e2e2, #0f37b5);
-        }
-        .alert {
-            color: red;
+        .box .shabat{
+            width: 200px;
+            height: 30px;
             text-align: center;
         }
-
+        /*-----------------------  CLOCK END   ----------------------*/
+        /*---------------------- KNOPKA MARDUK ----------------------*/
         .poqr {
             position: fixed;
             top: 20px;
@@ -102,7 +65,8 @@
         }
         .toggle-button {
             cursor: pointer;
-            color: rgba(15, 80, 246, 0.93);
+            color: rgba(179, 173, 173, 0.93);
+            translate:  -10px;
         }
         .signin{
             background-color: transparent;
@@ -122,8 +86,7 @@
         .signup:hover{
             color: rgba(15, 80, 246, 0.93);
         }
-
-
+        /*-------------------- KNOPKA MARDUK END----------------------*/
         /*----------------sign in about---------------------------*/
         h3{
             position: fixed;
@@ -139,7 +102,7 @@
         .labelemail{
             position: fixed;
             transition: 2s;
-            color: #000000;
+            color: #dfdddd;
             font-size: 1rem;
             right: -200px;
             font-weight: bold;
@@ -167,7 +130,7 @@
             position: fixed;
             transition: 2s;
             right: -200px;
-            color: #000000;
+            color: #dfdddd;
             font-size: 1rem;
             top: 22%;
             font-weight: bold;
@@ -225,7 +188,7 @@
         .reslabelname{
             position: fixed;
             transition: 1.4s;
-            color: #000000;
+            color: #dfdddd;
             font-size: 1rem;
             right: -4000px;
             font-weight: bold;
@@ -251,7 +214,7 @@
         .reslabellastname{
             position: fixed;
             transition: 1.6s;
-            color: #000000;
+            color: #dfdddd;
             font-size: 1rem;
             right: -4000px;
             font-weight: bold;
@@ -277,7 +240,7 @@
         .reslabelemail{
             position: fixed;
             transition: 1.8s;
-            color: #000000;
+            color: #dfdddd;
             font-size: 1rem;
             right: -4000px;
             top: 28%;
@@ -304,7 +267,7 @@
         .reslabelpass{
             position: fixed;
             transition: 2s;
-            color: #000000;
+            color: #dfdddd;
             font-size: 1rem;
             right: -4000px;
             top: 36%;
@@ -331,7 +294,7 @@
         .reslabelconfpass{
             position: fixed;
             transition: 2.2s;
-            color: #000000;
+            color: #dfdddd;
             font-size: 1rem;
             right: -4000px;
             top: 44%;
@@ -374,14 +337,199 @@
         .chopen .buttonsignup{
             right: 45px;
         }
-        /*---------------- sign up ----------------------*/
+        /*------------------- sign up --------------------------*/
+        /*---------------- HEADER NAVIGATION ----------------------*/
+    .headbig {
+        height: 70px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        top: 0;
+        z-index: 1;
+    }
+    .headbig .navig{
+        height: 15%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        position: fixed;
+        background-color: rgba(11, 7, 7, 0.61);
+    }
+    .navig .headul{
+        display: flex;
+        justify-content: space-around;
+        width: 1000px;
+        margin: auto;
+        list-style: none;
+    }
+        .headul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .headul > li {
+            margin-right: 20px;
+            position: relative;
+        }
+        .headul > li a {
+            text-decoration: none;
+            color: #faf6f6;
+            padding: 5px 10px;
+            display: block;
+        }
+        .dropdown-menu {
+            display: none;
+            list-style: none;
+            padding: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 10;
+        }
 
+        .dropdown-menu li {
+            margin: 5px 0;
+        }
+
+        .dropdown-menu li a {
+            color: #0877d3;
+            padding: 5px 10px;
+            font-size: 15px;
+        }
+        .dropdown-menu li a:hover {
+            text-decoration: #090808 1px underline ;
+        }
+
+        .dropdown.open .dropdown-menu {
+            display: block;
+            margin: 9px 15px;
+        }
+        .dropdown-toggle::after {
+            content: none;
+        }
+        .headul > li > a::after,
+        .headul > li > a::before {
+            content: none !important;
+        }
+        /*---------------- HEADER NAVIGATION ----------------------*/
+        /*---------------- ASIDE NAVIGATION ----------------------*/
+        .sidebar {
+            color: #fff;
+            position: fixed;
+            height: 90%;
+            width: 220px;
+            top: 12%;
+            overflow-y: auto;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 20px 0;
+            /*margin-top: 0;*/
+            border-radius: 2px;
+            background-color: rgba(11, 7, 7, 0.61);
+        }
+        .sidebar ul li {
+            margin-bottom: 15px;
+            transition: .5s;
+        }
+        .sidebar ul li:hover {
+            background-color: rgba(21, 20, 20, 0.95);
+            border-radius: 3px;
+        }
+        .sidebar ul li a {
+            display: block;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .submenu {
+            display: none;
+            padding-left: 20px;
+            list-style: none;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .submenu li {
+            margin: 5px 0;
+        }
+        .submenu li a {
+            color: #fff;
+            padding: 8px 10px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .has-submenu.open > .submenu {
+            display: block;
+        }
+        .submenu {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .has-submenu.open > .submenu {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /*---------------- ASIDE NAVIGATION END ----------------------*/
 
     </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+<body>
+<video autoplay muted loop class="background-video">
+    <source src="{{ asset('video/aga.mp4') }}" type="video/mp4">
+    Ваш браузер не поддерживает видео.
+</video>
 
-<body style="background: url('https://png.pngtree.com/thumb_back/fw800/background/20231008/pngtree-explore-the-world-online-booking-of-airline-tickets-with-search-bar-image_13571648.png') no-repeat center/cover fixed;">
+
+<div class="box">
+    <div class="shabat"></div>
+    <div class="jam">
+        <h1><span class=" araj"></span> : <span class=" erku"></span> : <span class="ereq"></span></h1>
+    </div>
+</div>
+
+
+
+<header class="headbig">
+    <nav class="navig">
+        <ul class="headul">
+            <li><a href="#">Главная</a></li>
+            {{--            {{ route('home') }}--}}
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Категории продуктов</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">по Языкам</a></li>
+                    <li><a href="#">по Картинкам</a></li>
+                    <li><a href="#">по Логи</a></li>
+                </ul>
+            </li>
+{{--            {{ route('products.index') }}--}}
+            <li><a href="#">Услуги </a></li>
+{{--            {{ route('services.index') }}--}}
+            <li><a href="#">Блог </a></li>
+{{--            {{ route('blog.index') }}--}}
+            <li><a href="#">О нас </a></li>
+{{--            {{ route('about') }}--}}
+            <li><a href="#">Контакты</a></li>
+{{--            {{ route('contact') }}--}}
+        </ul>
+    </nav>
+</header>
+
+
+
+
+
+
+
+
 
 
 @if (session('success'))
@@ -479,34 +627,53 @@
 
 
 
-<a href="{{ route('bookings.index') }}">Посмотреть все бронирования</a>
-
-<form action="{{ route('bookings.store') }}" method="POST">
-    @csrf
-    <div class="box">
-        <h4>FIND ROOM</h4>
-
-        <label for="anun">Имя</label>
-        <input type="text" name="anun" id="anun" value="{{ old('anun') }}" required>
-
-        <label for="azganun">Фамилия</label>
-        <input type="text" name="azganun" id="azganun" value="{{ old('azganun') }}" required>
-
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" value="{{ old('email') }}" required>
-
-        <label for="age">Возраст</label>
-        <input type="number" name="age" id="age" maxlength="3" value="{{ old('age') }}" required>
-
-        <label for="phone">Телефон</label>
-        <input type="text" name="phone" id="phone" maxlength="12" value="{{ old('phone') }}" required pattern="\+?[0-9]{10,12}">
-
-        <button type="submit" class="bron">Бронировать</button>
-    </div>
-</form>
+<aside class="sidebar">
+    <ul>
+        <li><a href="#">Новости</a></li>
+        <li class="has-submenu">
+            <a href="#">Кибер Мира</a>
+            <ul class="submenu">
+                <li><a href="#">Подкатегория 3.1</a></li>
+                <li><a href="#">Подкатегория 3.2</a></li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="#">Услуги</a>
+        </li>
+        <li class="menu-item">
+            <a href="#">Блог</a>
+        </li>
+        <li class="menu-item">
+            <a href="#">Хотите учиться?</a>
+        </li>
+        <li class="menu-item">
+            <a href="#">Популярные категории</a>
+        </li>
+        <li class="has-submenu">
+            <a href="#">Тематические категории</a>
+            <ul class="submenu">
+                <li><a href="#">Технологии</a></li>
+                <li><a href="#">Искусство</a></li>
+                <li><a href="#">Наука</a></li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="#">Рекомендации</a>
+        </li>
+        <li class="menu-item">
+            <a href="#">Акции и скидки</a>
+        </li>
+        <li class="menu-item">
+            <a href="#">Отзывы по категориям</a>
+        </li>
+        <li class="menu-item">
+            <a href="#">Новинки</a>
+        </li>
+    </ul>
+</aside>
 
 <script>
-
+    /*--------------------- ACCOUNT ----------------------*/
     const signin = document.querySelector('.signin');
     const signup = document.querySelector('.signup');
     const body = document.body;
@@ -524,54 +691,69 @@
             body.classList.remove('open');
         }
     });
-
-
     const toggleButton = document.querySelector('.toggle-button');
     const poqr = document.querySelector('.poqr');
-
-
     toggleButton.addEventListener('click', () => {
         poqr.classList.toggle('active');
         setTimeout(() => {
             poqr.classList.remove('active');
         }, 10000);
     });
+    /*--------------------- ACCOUNT ----------------------*/
+    /*---------------- HEADER NAVIGATION ----------------------*/
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        toggle.addEventListener('click', (event) => {
+            event.preventDefault();
+            dropdown.classList.toggle('open');
+            if (dropdown.classList.contains('open')) {
+                setTimeout(() => {
+                    dropdown.classList.remove('open');
+                }, 5000);
+            }
+        });
+    });
+    /*---------------- HEADER NAVIGATION ----------------------*/
+    /*---------------- ASIDE NAVIGATION ----------------------*/
+    const menuItems = document.querySelectorAll('.menu-item > a');
 
+    menuItems.forEach(item => {
+        item.addEventListener('click', (event) => {
+            event.preventDefault();  // Предотвращаем переход по ссылке
 
+            const parent = item.parentElement;  // Получаем родительский элемент li
 
+            // Переключаем класс "open", который будет показывать подменю
+            parent.classList.toggle('open');
+        });
+    });
+    /*---------------- ASIDE NAVIGATION ----------------------*/
+    /*------------------------  CLOCK  ----------------------*/
+    const shabat = document.querySelector('.box .shabat')
+    const arajin = document.querySelector('.box .jam .araj')
+    const erku = document.querySelector('.box .jam .erku ')
+    const ereq = document.querySelector('.box .jam .ereq ')
 
+    setInterval(() =>{
+        const op = new Date()
+        op.getDay() == 1 ? shabat.innerText = 'Понедельник': op.getDay() == 2 ? shabat.innerText = 'Вторник': op.getDay() == 3 ? shabat.innerText = 'Среда': op.getDay() == 4 ? shabat.innerText = 'Четверг': op.getDay() == 5 ? shabat.innerText = 'Пятница': op.getDay() == 6 ? shabat.innerText = 'Суббота': op.getDay() == 7 ? shabat.innerText = 'Воскресенье': '';
+        const jamm = op.getHours();
+        const rope  = op.getMinutes();
+        const vrk = op.getSeconds()
+        arajin.innerText = jamm;
+        erku.innerText = rope;
+        ereq.innerText  = vrk
+    },1000)
+    console.log(erku);
+    setInterval(() => {
+        const data = new Date()
+        let jam = data.getHours();
+        let rope = data.getMinutes();
+        let varkyan = data.getSeconds();
+    })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /*------------------------  CLOCK END ----------------------*/
 
 
 </script>
