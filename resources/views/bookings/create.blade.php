@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Создать бронирование</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Проэкт</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="../images/iconlogo.png">
     <style>
+        html, body {
+            cursor: none;
+            margin: 0;
+            padding: 0;
+            /*height: 200vh;*/
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            /*background-color:  rgb(30 64 64 / 62%);*/
+            }
+
         /*----------------------- BACK VIDEO -----------------------*/
         .background-video {
             position: fixed;
@@ -29,26 +41,17 @@
             z-index: 1000;
             translate: 12px;
         }
-        .box .jam{
-            width: 200px;
-            height: 40px;
-        }
-        .box .shabat{
-            width: 200px;
-            height: 30px;
-            text-align: center;
-        }
         /*-----------------------  CLOCK END   ----------------------*/
         /*---------------------- KNOPKA MARDUK ----------------------*/
         .poqr {
             position: fixed;
             top: 20px;
-            right: -168px;
+            right: -166px;
             transition: right 1s ease, transform 0.5s ease;
             display: flex;
             align-items: center;
+            z-index: 2;
         }
-
         .poqr.active {
             right: -90px;
             transform: translateX(-100px);
@@ -57,14 +60,12 @@
         .poqr i {
             font-size: 28px;
             margin-right: 10px;
-            cursor: pointer;
         }
         .poqr.active .signin,
         .poqr.active .signup {
             display: block;
         }
         .toggle-button {
-            cursor: pointer;
             color: rgba(179, 173, 173, 0.93);
             translate:  -10px;
         }
@@ -92,14 +93,15 @@
             position: fixed;
             transition: 1s;
             right: -90px;
+            z-index: 2;
             top: 8%;
             user-select: none;
         }
         .open h3{
             right: 35px;
         }
-
         .labelemail{
+            z-index: 2;
             position: fixed;
             transition: 2s;
             color: #dfdddd;
@@ -111,9 +113,9 @@
         .open .labelemail{
             right: 35px;
         }
-
         .inputemail{
             margin: 0;
+            z-index: 2;
             border-radius: 5px;
             padding: 2px;
             transition: 1.3s;
@@ -180,6 +182,7 @@
             transition: 1s;
             right: -120px;
             top: 8%;
+            z-index: 2;
             user-select: none;
         }
         .chopen h6{
@@ -187,6 +190,7 @@
         }
         .reslabelname{
             position: fixed;
+            z-index: 2;
             transition: 1.4s;
             color: #dfdddd;
             font-size: 1rem;
@@ -199,6 +203,7 @@
         }
         .resinputname{
             margin: 0;
+            z-index: 2;
             border-radius: 5px;
             padding: 2px;
             transition: 1.3s;
@@ -339,6 +344,14 @@
         }
         /*------------------- sign up --------------------------*/
         /*---------------- HEADER NAVIGATION ----------------------*/
+        .headverev{
+            width: 100%;
+            background: rgb(113, 113, 143);
+            height: 17px;
+            top: 0;
+            z-index: 3;
+            position: fixed;
+        }
     .headbig {
         height: 70px;
         display: flex;
@@ -348,12 +361,13 @@
         z-index: 1;
     }
     .headbig .navig{
-        height: 15%;
+        height: 18%;
         width: 100%;
+        top: 2%;
         display: flex;
         align-items: center;
         position: fixed;
-        background-color: rgba(11, 7, 7, 0.61);
+        background-color: rgb(41, 41, 48);
     }
     .navig .headul{
         display: flex;
@@ -375,78 +389,60 @@
         .headul > li a {
             text-decoration: none;
             color: #faf6f6;
+            font-size: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
             padding: 5px 10px;
             display: block;
         }
-        .dropdown-menu {
-            display: none;
-            list-style: none;
-            padding: 10px;
-            background-color: #f9f9f9;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            top: 100%;
-            left: 0;
-            z-index: 10;
-        }
+        .headul > li a:hover {
+            transform: translateY(3px);
+            box-shadow: 0 23px 3px -19px rgba(34, 248, 255, 0.82);
 
-        .dropdown-menu li {
-            margin: 5px 0;
-        }
-
-        .dropdown-menu li a {
-            color: #0877d3;
-            padding: 5px 10px;
-            font-size: 15px;
-        }
-        .dropdown-menu li a:hover {
-            text-decoration: #090808 1px underline ;
-        }
-
-        .dropdown.open .dropdown-menu {
-            display: block;
-            margin: 9px 15px;
-        }
-        .dropdown-toggle::after {
-            content: none;
+            /*4px solid */
         }
         .headul > li > a::after,
         .headul > li > a::before {
             content: none !important;
         }
-        /*---------------- HEADER NAVIGATION ----------------------*/
+        /*---------------- HEADER NAVIGATION END ----------------------*/
         /*---------------- ASIDE NAVIGATION ----------------------*/
         .sidebar {
             color: #fff;
             position: fixed;
             height: 90%;
             width: 220px;
-            top: 12%;
+            top: 19.5%;
+            left: 1.5%;
             overflow-y: auto;
         }
         .sidebar ul {
             list-style: none;
-            padding: 20px 0;
-            /*margin-top: 0;*/
             border-radius: 2px;
+            margin-top: 1.75%;
             background-color: rgba(11, 7, 7, 0.61);
+            padding: 7px 2px;
         }
         .sidebar ul li {
             margin-bottom: 15px;
             transition: .5s;
         }
         .sidebar ul li:hover {
-            background-color: rgba(21, 20, 20, 0.95);
+            background-color: rgba(21, 20, 20, 0.07);
             border-radius: 3px;
         }
         .sidebar ul li a {
             display: block;
-            padding: 10px;
+            padding: 11px 15px;
             color: #fff;
-            text-decoration: none;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 15px;
             transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+
+        }
+        .sidebar ul li a:hover {
+            transform: translateX(3px);
+            border-left: 4px solid rgba(34, 248, 255, 0.82);
         }
         .submenu {
             display: none;
@@ -477,60 +473,440 @@
             transform: translateY(0);
         }
         /*---------------- ASIDE NAVIGATION END ----------------------*/
+        /*---------------- CURSOR  ----------------------*/
+        #custom-cursor {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.13);
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.99);
+            transform: translate(-50%, -50%);
+            border: 2px double white;
+            z-index: 1000;
+            transition: transform 0.1s ease;
+        }
+        /*---------------- CURSOR END ----------------------*/
+        /*------------------ MAINFULL -----------------------*/
+        .section-content{
+            position: absolute;
+            height: 1465px;
+            width: 1180px;
+            left: 6%;
+            transform:translateX(150px) translateY(62px);
+        }
+        .mainone,
+        .maintwo,
+        .mainthree,
+        .mainfour{
+            position: absolute;
+            width: 1180px;
+            height: 366px;
+        }
+        .mainone{
+            transform:translateY(-57px) translateX(-9px);
+        }
+        .maintwo{
+            transform: translateY(260px) translateX(-9px);
+        }
+        .mainthree{
+            transform: translateY(582px) translateX(-9px);
+        }
+        .mainfour{
+            transform: translateY(904px) translateX(-9px);
+        }
+        .mainone a,
+        .maintwo a,
+        .mainthree a,
+        .mainfour a{
+            color: #fff;
+            display: inline-block;
+            position: relative;
+        }
+        .mainone a .kategoriprod1,
+        .maintwo a .kategoriprod11,
+        .mainthree a .kategoriprod111,
+        .mainfour a .kategoriprod1111,
+        .mainone a .kategoriprod2,
+        .maintwo a .kategoriprod22,
+        .mainthree a .kategoriprod222,
+        .mainfour a .kategoriprod2222,
+        .mainone a .kategoriprod3,
+        .maintwo a .kategoriprod33,
+        .mainthree a .kategoriprod333,
+        .mainfour a .kategoriprod3333
+        {
+            width: 364px;
+            height: 364px;
+            transition: .5s;
+        }
+        .mainone a:hover .kategoriprod1,
+        .maintwo a:hover .kategoriprod11,
+        .mainthree a:hover .kategoriprod111,
+        .mainfour a:hover .kategoriprod1111,
+        .mainone a:hover .kategoriprod2,
+        .maintwo a:hover .kategoriprod22,
+        .mainthree a:hover .kategoriprod222,
+        .mainfour a:hover .kategoriprod2222,
+        .mainone a:hover .kategoriprod3,
+        .maintwo a:hover .kategoriprod33,
+        .mainthree a:hover .kategoriprod333,
+        .mainfour a:hover .kategoriprod3333
+        {
+            rotate: -35deg;
+            transform: skew(20deg);
+        }
+        .mainone a .kategoriprod1 span,
+        .maintwo a .kategoriprod11 span,
+        .mainthree a .kategoriprod111 span,
+        .mainfour a .kategoriprod1111 span,
+        .mainone a .kategoriprod2 span,
+        .maintwo a .kategoriprod22 span,
+        .mainthree a .kategoriprod222 span,
+        .mainfour a .kategoriprod2222 span,
+        .mainone a .kategoriprod3 span,
+        .maintwo a .kategoriprod33 span,
+        .mainthree a .kategoriprod333 span,
+        .mainfour a .kategoriprod3333 span
+        {
+            position: absolute;
+            top: 18%;
+            left: 22%;;
+            width: 200px;
+            height: 200px;
+            border: 5px double floralwhite;
+            color: #006ba5;
+            border-radius: 5%;
+            transition: .5s;
+            font-size: 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .mainone a:hover .kategoriprod1 span:first-child,
+        .maintwo a:hover .kategoriprod11 span:first-child,
+        .mainthree a:hover .kategoriprod111 span:first-child,
+        .mainfour a:hover .kategoriprod1111 span:first-child,
+        .mainone a:hover .kategoriprod2 span:first-child,
+        .maintwo a:hover .kategoriprod22 span:first-child,
+        .mainthree a:hover .kategoriprod222 span:first-child,
+        .mainfour a:hover .kategoriprod2222 span:first-child,
+        .mainone a:hover .kategoriprod3 span:first-child,
+        .maintwo a:hover .kategoriprod33 span:first-child,
+        .mainthree a:hover .kategoriprod333 span:first-child,
+        .mainfour a:hover .kategoriprod3333 span:first-child
+        {
+            opacity: 0.8;
+            transform:  translate(-15px, 15px);
+        }
+        .mainone a:hover .kategoriprod1 span:nth-child(2),
+        .maintwo a:hover .kategoriprod11 span:nth-child(2),
+        .mainthree a:hover .kategoriprod111 span:nth-child(2),
+        .mainfour a:hover .kategoriprod1111 span:nth-child(2),
+        .mainone a:hover .kategoriprod2 span:nth-child(2),
+        .maimaintwonone a:hover .kategoriprod22 span:nth-child(2),
+        .mainthree a:hover .kategoriprod222 span:nth-child(2),
+        .mainfour a:hover .kategoriprod2222 span:nth-child(2),
+        .mainone a:hover .kategoriprod3 span:nth-child(2),
+        .maimaintwonone a:hover .kategoriprod33 span:nth-child(2),
+        .mainthree a:hover .kategoriprod333 span:nth-child(2),
+        .mainfour a:hover .kategoriprod3333 span:nth-child(2)
+        {
+            border-radius: 5%;
+            border: 5px double floralwhite;
+            opacity: 0.7;
+            transform:  translate(-15px, 15px);
+        }
+        .mainone a:hover .kategoriprod1 span:nth-child(3),
+        .maintwo a:hover .kategoriprod11 span:nth-child(3),
+        .mainthree a:hover .kategoriprod111 span:nth-child(3),
+        .mainfour a:hover .kategoriprod1111 span:nth-child(3),
+        .mainone a:hover .kategoriprod2 span:nth-child(3),
+        .maintwo a:hover .kategoriprod22 span:nth-child(3),
+        .mainthree a:hover .kategoriprod222 span:nth-child(3),
+        .mainfour a:hover .kategoriprod2222 span:nth-child(3),
+        .mainone a:hover .kategoriprod3 span:nth-child(3),
+        .maintwo a:hover .kategoriprod33 span:nth-child(3),
+        .mainthree a:hover .kategoriprod333 span:nth-child(3),
+        .mainfour a:hover .kategoriprod3333 span:nth-child(3)
+        {
+            border-radius: 5%;
+            border: 5px double floralwhite;
+            opacity: 0.6;
+            transform:  translate(-30px, 30px);
+        }
+        .mainone a:hover .kategoriprod1 span:nth-child(4),
+        .maintwo a:hover .kategoriprod11 span:nth-child(4),
+        .mainthree a:hover .kategoriprod111 span:nth-child(4),
+        .mainfour a:hover .kategoriprod1111 span:nth-child(4),
+        .mainone a:hover .kategoriprod2 span:nth-child(4),
+        .maintwo a:hover .kategoriprod22 span:nth-child(4),
+        .mainthree a:hover .kategoriprod222 span:nth-child(4),
+        .mainfour a:hover .kategoriprod2222 span:nth-child(4),
+        .mainone a:hover .kategoriprod3 span:nth-child(4),
+        .maintwo a:hover .kategoriprod33 span:nth-child(4),
+        .mainthree a:hover .kategoriprod333 span:nth-child(4),
+        .mainfour a:hover .kategoriprod3333 span:nth-child(4)
+        {
+            border-radius: 5%;
+            border: 5px double floralwhite;
+            opacity: 0.5;
+            transform:  translate(-50px, 50px);
+        }
+        .mainone a:hover .kategoriprod1 span:nth-child(5),
+        .maintwo a:hover .kategoriprod11 span:nth-child(5),
+        .mainthree a:hover .kategoriprod111 span:nth-child(5),
+        .mainfour a:hover .kategoriprod1111 span:nth-child(5),
+        .mainone a:hover .kategoriprod2 span:nth-child(5),
+        .maintwo a:hover .kategoriprod22 span:nth-child(5),
+        .mainthree a:hover .kategoriprod222 span:nth-child(5),
+        .mainfour a:hover .kategoriprod2222 span:nth-child(5),
+        .mainone a:hover .kategoriprod3 span:nth-child(5),
+        .maintwo a:hover .kategoriprod33 span:nth-child(5),
+        .mainthree a:hover .kategoriprod333 span:nth-child(5),
+        .mainfour a:hover .kategoriprod3333 span:nth-child(5)
+        {
+            border-radius: 5%;
+            border: 5px double floralwhite;
+            opacity: 0.4;
+            transform:  translate(-80px, 80px);
+        }
+        .mainone a:hover .kategoriprod1 span:nth-child(6),
+        .maintwo a:hover .kategoriprod11 span:nth-child(6),
+        .mainthree a:hover .kategoriprod111 span:nth-child(6),
+        .mainfour a:hover .kategoriprod1111 span:nth-child(6),
+        .mainone a:hover .kategoriprod2 span:nth-child(6),
+        .maintwo a:hover .kategoriprod22 span:nth-child(6),
+        .mainthree a:hover .kategoriprod222 span:nth-child(6),
+        .mainfour a:hover .kategoriprod2222 span:nth-child(6),
+        .mainone a:hover .kategoriprod3 span:nth-child(6),
+        .maintwo a:hover .kategoriprod33 span:nth-child(6),
+        .mainthree a:hover .kategoriprod333 span:nth-child(6),
+        .mainfour a:hover .kategoriprod3333 span:nth-child(6)
+        {
+            border-radius: 5%;
+            border: 5px double floralwhite;
+            opacity: 0.2;
+            transform:  translate(-110px, 110px);
+        }
+        .mainone .kategoriprod1 span,
+        .mainone .kategoriprod2 span,
+        .mainone .kategoriprod3 span,
+        .maintwo .kategoriprod11 span,
+        .maintwo .kategoriprod22 span,
+        .maintwo .kategoriprod33 span,
+        .mainthree .kategoriprod111 span,
+        .mainthree .kategoriprod222 span,
+        .mainthree .kategoriprod333 span,
+        .mainfour .kategoriprod1111 span,
+        .mainfour .kategoriprod2222 span,
+        .mainfour .kategoriprod3333 span
+        {
+            background-color: #333365;
+        }
+        /*------------------- MAINFULL END ----------------------*/
+        /*-------------------- MAIN HIDDEN -------------------------*/
+        .hidden {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
 
+        .visible {
+            max-height: 100vh;
+            opacity: 1;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+        }
+
+        .section-content {
+            margin-top: 100px;
+            padding: 20px;
+            background: rgba(43, 40, 40, 0.02);
+        }
+        /*-------------------- MAIN HIDDEN END ----------------------*/
+        /*---------------------- SCROLLBAR ------------------------*/
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 3px;
+        }
+        html {
+            overflow: scroll;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0), #000000);
+            border-radius: 10px;
+        }
+        /*--------------------- SCROLLBAR END ----------------------*/
+        /*---------------------- FOOTER ------------------------*/
+        footer {
+            height: 150px;
+            background-color: rgba(11, 7, 7, 0.73);
+            bottom: 0;
+            position: fixed;
+            width: 100%;
+        }
+        .footpod{
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            top: 10%;
+            right: 10%;
+            border: 2px solid rgba(117, 114, 114, 0.94);
+            border-radius: 50%;
+            translate: 80px 60px;
+            background-color: rgba(35, 35, 35, 0.96);
+            transition: 2s;
+        }
+        .footpod:hover {
+            border: 2px solid rgba(34, 248, 255, 0.82);
+        }
+        .footpod i{
+            font-size: 1.3rem;
+            color: rgb(253, 253, 253);
+            translate: 10px 9px;
+        }
+        .footpod a{
+            width: 100px;
+            height: 100px;
+            margin: 20px 20px;
+            position: absolute;
+            z-index: 10;
+            translate: -50px -32px ;
+            opacity: 0;
+            transition: .9s calc(.4s * var(--i));
+        }
+        .footpod:hover a{
+            position: absolute;
+            opacity: 1 ;
+            scale:1.5;
+            pointer-events: auto;
+            width: 20px;
+            height: 20px;
+            /*border: 1px solid red;*/
+        }
+        .footpod:hover .del1 {
+            transform: translate(-41px, 21px);
+        }
+
+        .footpod:hover .del2 {
+            transform: translate(-39px, -10px);
+        }
+
+        .footpod:hover .del3 {
+            transform: translate(-27px, -34px);
+        }
+
+        .footpod:hover .del4 {
+            transform: translate(1px, -42px);
+        }
+            /*--------------------- FOOTER END ----------------------*/
+            /*--------------------- ABOUT US ----------------------*/
+        .section-content.about {
+            background-color: rgba(27, 30, 27, 0.02);
+            font-family: 'Arial', sans-serif;
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin: 60px auto;
+            transition: all 0.3s ease-in-out;
+        }
+        .section-content.about .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .section-content.about h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #0b0808;
+            text-align: center;
+        }
+        .section-content.about h2 {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #170c0c;
+            border-left: 4px solid rgba(34, 248, 255, 0.82);
+            padding-left: 10px;
+        }
+        .section-content.about p {
+            font-size: 1.1em;
+            line-height: 1.8em;
+            margin-bottom: 20px;
+            color: rgba(12, 9, 9, 0.76);
+        }
+        .section-content.about ul {
+            list-style: disc;
+            padding-left: 40px;
+            margin-bottom: 20px;
+        }
+        .section-content.about ul li {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #292626;
+        }
+        .section-content.about a {
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .section-content.about a:hover {
+            text-decoration: underline;
+        }
+        .section-content.about p a {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: #28a7d5;
+            color: #fff;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .section-content.about p a:hover {
+            transform: scale(1.05);
+        }
+            /*--------------------- ABOUT US END ----------------------*/
     </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
-<video autoplay muted loop class="background-video">
-    <source src="{{ asset('video/aga.mp4') }}" type="video/mp4">
-    Ваш браузер не поддерживает видео.
-</video>
+<body style="cursor: none; min-height: 100vh; background-color: rgba(30,30,64,0.62); margin: 0; position: relative;">
 
+{{--/*----------------------- BACK VIDEO -----------------------*/--}}
+{{--<video autoplay muted loop class="background-video">--}}
+{{--    <source src="{{ asset('video/aga1.mp4') }}" type="video/mp4">--}}
+{{--</video>--}}
+{{--/*----------------------- BACK VIDEO END -----------------------*/--}}
 
+{{--/*---------------- CURSOR  ----------------------*/--}}
+<div id="custom-cursor"></div>
+{{--/*---------------- CURSOR END ----------------------*/--}}
+
+{{--/*------------------------- CLOCK ----------------------------*/--}}
 <div class="box">
-    <div class="shabat"></div>
-    <div class="jam">
-        <h1><span class=" araj"></span> : <span class=" erku"></span> : <span class="ereq"></span></h1>
-    </div>
+        <div id="date" style="font-size: 16px; text-align: center; translate: -27px 33px; user-select: none;"></div>
+        <div id="time" style="letter-spacing: 1px; font-size: 34px; font-weight: bold; text-align: center; translate: -32px 34px; user-select: none;"></div>
+
 </div>
-
-
-
+{{--/*------------------------- CLOCK ----------------------------*/--}}
+{{--/*---------------- HEADER NAVIGATION ----------------------*/--}}
+<div class="headverev"></div>
 <header class="headbig">
     <nav class="navig">
         <ul class="headul">
-            <li><a href="#">Главная</a></li>
-            {{--            {{ route('home') }}--}}
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle">Категории продуктов</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">по Языкам</a></li>
-                    <li><a href="#">по Картинкам</a></li>
-                    <li><a href="#">по Логи</a></li>
-                </ul>
-            </li>
-{{--            {{ route('products.index') }}--}}
-            <li><a href="#">Услуги </a></li>
-{{--            {{ route('services.index') }}--}}
-            <li><a href="#">Блог </a></li>
-{{--            {{ route('blog.index') }}--}}
-            <li><a href="#">О нас </a></li>
-{{--            {{ route('about') }}--}}
-            <li><a href="#">Контакты</a></li>
-{{--            {{ route('contact') }}--}}
+            <li class="nav-item home"><a href="#" class="dropdown-toggle" data-target="home">Главная</a></li>
+            <li class="nav-item products dropdown"><a href="#" class="dropdown-toggle" data-target="products">Категории продуктов</a></li>
+            <li class="nav-item services"><a href="#" class="dropdown-toggle" data-target="services">Услуги</a></li>
+            <li class="nav-item blog"><a href="#" class="dropdown-toggle" data-target="blog">Блог</a></li>
+            <li class="nav-item about dropdown"><a href="#" class="dropdown-toggle" data-target="about">О нас</a></li>
+            <li class="nav-item contacts"><a href="#" class="dropdown-toggle" data-target="contacts">Контакты</a></li>
         </ul>
     </nav>
+
 </header>
-
-
-
-
-
-
-
-
-
+{{--/*---------------- HEADER NAVIGATION END----------------------*/--}}
 
 @if (session('success'))
     <div class="alert alert-success">
@@ -553,7 +929,6 @@
     <span style="display: inline-block; margin: 0 5px; color: #4c4a4a; user-select: none;">/</span>
     <button type="submit" class="signup">Регистрация</button>
 </div>
-
     @if (session('error'))
         <div class="alert alert-danger">{{ session('error') }}</div>
     @endif
@@ -570,9 +945,6 @@
         <input type="password" class="inputpassword" name="password" id="password" maxlength="30">
         <button type="submit" class="buttonsignin">Вход</button>
     </form>
-
-
-
 
     <h6 style="color: #d5d5d5; font-size: 19px; ">Регистрация</h6>
     @if ($errors->any())
@@ -624,6 +996,238 @@
         <button type="submit" class="buttonsignup">Создать аккаунт</button>
     </form>
 
+{{----------------------------------------------------------------------------------------------------}}
+{{----------------------------------------------------------------------------------------------------}}
+{{----------------------------------------------------------------------------------------------------}}
+{{----------------------------------------------------------------------------------------------------}}
+
+{{--<div class="section-content home hidden">--}}
+{{--    <h1>Главная</h1>--}}
+{{--    <p>Контент для главной страницы.</p>--}}
+{{--</div>--}}
+{{--<div class="section-content products hidden">--}}
+{{--    <h1>Категории продуктов</h1>--}}
+{{--    <p>Контент для категории продуктов.</p>--}}
+{{--</div>--}}
+{{--<div class="section-content services hidden">--}}
+{{--    <h1>Услуги</h1>--}}
+{{--    <p>Контент для услуг.</p>--}}
+{{--</div>--}}
+{{--<div class="section-content blog hidden">--}}
+{{--    <h1>Блог</h1>--}}
+{{--    <p>Контент для блога.</p>--}}
+{{--</div>--}}
+{{--<div class="section-content about hidden">--}}
+{{--    <h1>О нас</h1>--}}
+{{--    <p>Контент для страницы "О нас".</p>--}}
+{{--</div>--}}
+{{--<div class="section-content contacts hidden">--}}
+{{--    <h1>Контакты</h1>--}}
+{{--    <p>Контент для страницы "Контакты".</p>--}}
+{{--</div>--}}
+{{----------------------------------------------------------------------------------------------------}}
+{{----------------------------------------------------------------------------------------------------}}
+{{----------------------------------------------------------------------------------------------------}}
+{{----------------------------------------------------------------------------------------------------}}
+
+<section class="section-content about hidden" id="aboutus">
+    <div class="container">
+        <h1>О нас</h1>
+        <p>Мы предлагаем лучшие цифровые продукты на рынке. Наш магазин — это место,
+            где можно легко приобрести игровые ключи, подписки и программное обеспечение.</p>
+
+        <h2>История компании</h2>
+        <p>С 2020 года мы помогаем геймерам и профессионалам получать доступ к лучшим цифровым продуктам.
+            Все началось с идеи сделать покупку ключей максимально быстрой и простой.</p>
+
+        <h2>Наши ценности</h2>
+        <ul>
+            <li>Гарантия качества и оригинальности.</li>
+            <li>Прозрачные цены без скрытых наценок.</li>
+            <li>Мгновенная доставка после оплаты.</li>
+            <li>Поддержка клиентов 24/7.</li>
+        </ul>
+
+        <h2>Почему выбирают нас?</h2>
+        <p>Мы предоставляем только официальные ключи и гарантируем их работу. Наша платформа защищена современными технологиями шифрования для безопасности ваших данных.</p>
+
+        <h2>Свяжитесь с нами</h2>
+        <p>Email: <a href="mailto:support@cybercodeshop.com">support@cybercodeshop.com</a></p>
+        <p>Телефон: <a href="tel:+123456789">+374 (77) (96) 033 - 997</a></p>
+    </div>
+</section>
+
+<main class="section-content products hidden" id="Product">
+    <div class="mainone">
+        <a href="https://www.youtube.com/">
+            <div class="kategoriprod1">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="fa-solid fa-shop"></span>
+            </div>
+        </a>
+        <a href="#">
+            <div class="kategoriprod2">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="fa-solid fa-shop"></span>
+            </div>
+        </a>
+        <a href="#">
+            <div class="kategoriprod3">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="fa-solid fa-shop"></span>
+            </div>
+        </a>
+    </div>
+    <div class="maintwo">
+        <a href="#">
+            <div class="kategoriprod11">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="fa-solid fa-shop"></span>
+            </div>
+        </a>
+        <a href="#">
+            <div class="kategoriprod22">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="fa-solid fa-shop"></span>
+            </div>
+        </a>
+        <a href="#">
+            <div class="kategoriprod33">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="fa-solid fa-shop"></span>
+            </div>
+        </a>
+    </div>
+    <div class="mainthree">
+        <a href="#">
+            <div class="kategoriprod111">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="fa-solid fa-shop"></span>
+            </div>
+        </a>
+        <a href="#">
+            <div class="kategoriprod222">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="fa-solid fa-shop"></span>
+            </div>
+        </a>
+        <a href="#">
+            <div class="kategoriprod333">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="fa-solid fa-shop"></span>
+            </div>
+        </a>
+    </div>
+    <div class="mainfour">
+        <a href="#">
+            <div class="kategoriprod1111">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="fa-solid fa-shop"></span>
+            </div>
+        </a>
+        <a href="#">
+            <div class="kategoriprod2222">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="fa-solid fa-shop"></span>
+            </div>
+        </a>
+        <a href="#">
+            <div class="kategoriprod3333">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="fa-solid fa-shop"></span>
+            </div>
+        </a>
+    </div>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -672,25 +1276,34 @@
     </ul>
 </aside>
 
+
+ <footer>
+     <div class="footpod">
+         <i class="fa-regular fa-paper-plane"></i>
+         <a class="del1" style="--i:0;" href="https://www.facebook.com/?locale=ru_RU"><i class="fa-brands fa-facebook"></i></a>
+         <a class="del2" style="--i:1;" href="https://www.whatsapp.com/?lang=ru_RU"><i class="fa-brands fa-whatsapp"></i></a>
+         <a class="del3" style="--i:2;" href="https://www.viber.com/ru/"><i class="fa-brands fa-viber"></i></a>
+         <a class="del4"  style="--i:3;" href="https://web.telegram.org/a/"><i class="fa-brands fa-telegram"></i></a>
+     </div>
+ </footer>
+
 <script>
     /*--------------------- ACCOUNT ----------------------*/
     const signin = document.querySelector('.signin');
     const signup = document.querySelector('.signup');
     const body = document.body;
 
-    signin.addEventListener('click', () => {
-        body.classList.toggle('open');
-        if (body.classList.contains('open')) {
-            body.classList.remove('chopen');
+    function toggleClass(addClass, removeClass) {
+        body.classList.toggle(addClass);
+        if (body.classList.contains(addClass)) {
+            body.classList.remove(removeClass);
+            setTimeout(() => body.classList.remove(addClass), 10000);
         }
-    });
+    }
 
-    signup.addEventListener('click', () => {
-        body.classList.toggle('chopen');
-        if (body.classList.contains('chopen')) {
-            body.classList.remove('open');
-        }
-    });
+    signin.addEventListener('click', () => toggleClass('open', 'chopen'));
+    signup.addEventListener('click', () => toggleClass('chopen', 'open'));
+
     const toggleButton = document.querySelector('.toggle-button');
     const poqr = document.querySelector('.poqr');
     toggleButton.addEventListener('click', () => {
@@ -701,61 +1314,67 @@
     });
     /*--------------------- ACCOUNT ----------------------*/
     /*---------------- HEADER NAVIGATION ----------------------*/
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.dropdown-toggle');
-        toggle.addEventListener('click', (event) => {
-            event.preventDefault();
-            dropdown.classList.toggle('open');
-            if (dropdown.classList.contains('open')) {
-                setTimeout(() => {
-                    dropdown.classList.remove('open');
-                }, 5000);
-            }
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuItems = document.querySelectorAll('.dropdown-toggle');
+        let activeSection = null;
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const targetClass = item.getAttribute('data-target');
+                const targetSection = document.querySelector(`.section-content.${targetClass}`);
+
+                if (activeSection === targetSection) {
+                    activeSection.classList.remove('visible');
+                    activeSection.classList.add('hidden');
+                    activeSection = null;
+                    return;
+                }
+
+                if (activeSection) {
+                    activeSection.classList.remove('visible');
+                    activeSection.classList.add('hidden');
+                }
+
+                targetSection.classList.remove('hidden');
+                targetSection.classList.add('visible');
+                activeSection = targetSection;
+            });
         });
     });
-    /*---------------- HEADER NAVIGATION ----------------------*/
+    /*---------------- HEADER NAVIGATION ----------------------*
     /*---------------- ASIDE NAVIGATION ----------------------*/
     const menuItems = document.querySelectorAll('.menu-item > a');
-
     menuItems.forEach(item => {
         item.addEventListener('click', (event) => {
-            event.preventDefault();  // Предотвращаем переход по ссылке
-
-            const parent = item.parentElement;  // Получаем родительский элемент li
-
-            // Переключаем класс "open", который будет показывать подменю
+            event.preventDefault();
+            const parent = item.parentElement;
             parent.classList.toggle('open');
         });
     });
     /*---------------- ASIDE NAVIGATION ----------------------*/
     /*------------------------  CLOCK  ----------------------*/
-    const shabat = document.querySelector('.box .shabat')
-    const arajin = document.querySelector('.box .jam .araj')
-    const erku = document.querySelector('.box .jam .erku ')
-    const ereq = document.querySelector('.box .jam .ereq ')
+    function updateDateTime() {
+        const today = new Date();
+        const dateOptions = { weekday: 'long', day: 'numeric', month: 'long' };
+        const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        const formattedDate = today.toLocaleDateString('ru-RU', dateOptions);
+        const formattedTime = today.toLocaleTimeString('ru-RU', timeOptions);
 
-    setInterval(() =>{
-        const op = new Date()
-        op.getDay() == 1 ? shabat.innerText = 'Понедельник': op.getDay() == 2 ? shabat.innerText = 'Вторник': op.getDay() == 3 ? shabat.innerText = 'Среда': op.getDay() == 4 ? shabat.innerText = 'Четверг': op.getDay() == 5 ? shabat.innerText = 'Пятница': op.getDay() == 6 ? shabat.innerText = 'Суббота': op.getDay() == 7 ? shabat.innerText = 'Воскресенье': '';
-        const jamm = op.getHours();
-        const rope  = op.getMinutes();
-        const vrk = op.getSeconds()
-        arajin.innerText = jamm;
-        erku.innerText = rope;
-        ereq.innerText  = vrk
-    },1000)
-    console.log(erku);
-    setInterval(() => {
-        const data = new Date()
-        let jam = data.getHours();
-        let rope = data.getMinutes();
-        let varkyan = data.getSeconds();
-    })
-
+         document.getElementById('date').textContent = formattedDate;
+        document.getElementById('time').textContent = formattedTime;
+    }
+     setInterval(updateDateTime, 1000);
+    updateDateTime();
     /*------------------------  CLOCK END ----------------------*/
-
-
+    /*------------------------ MOUSE CURSOR ----------------------*/
+    const cursor = document.getElementById('custom-cursor');
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+    });
+    /*------------------------ MOUSE CURSOR END ----------------------*/
 </script>
 
 </body>
